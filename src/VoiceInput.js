@@ -4,9 +4,16 @@ function VoiceInput() {
   const [transcript, setTranscript] = useState("");
   const [isListening, setIsListening] = useState(false);
 
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
   const startListening = () => {
-    const recognition = new window.SpeechRecognition();
-    recognition.lang = 'en-US'; // You can set other languages
+    if (!SpeechRecognition) {
+      alert("Speech Recognition API is not supported in this browser.");
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'en-US';
 
     recognition.onstart = () => {
       setIsListening(true);
