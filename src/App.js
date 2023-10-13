@@ -1,10 +1,11 @@
 import React from 'react';
-import Greeting from './Greeting';
+import VoiceInput from './VoiceInput';
 
 function App() {
   return (
     <div className="App">
-      <Greeting />
+      <h1>Voice to Text Converter</h1>
+      <VoiceInput />
     </div>
   );
 }
